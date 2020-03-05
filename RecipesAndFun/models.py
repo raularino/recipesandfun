@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class recipe(models.Model):
+class receta(models.Model):
     nombre_receta= models.CharField(max_length=100, unique=True)
     ingredientes= models.TextField(help_text='Escribe los ingredientes')
     preparacion= models.TextField(verbose_name='Preparacion')
@@ -12,4 +12,6 @@ class recipe(models.Model):
     fecha_publicacion= models.DateTimeField(auto_now=True)
     #usuario= models.ForeignKey(User)
 
+    def __unicode__(self):
+        return u"%s" % self.name
 
