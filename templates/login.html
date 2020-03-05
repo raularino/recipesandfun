@@ -1,0 +1,22 @@
+ {% load static %}
+<html>
+
+    <body>
+        <h1>
+            Bienvenidos/as a
+            <BR>
+         </h1>
+        <img src="{% static "titulo.PNG" %}" alt="Recipes and Fun">
+    </body>
+</html>
+
+<h2>Iniciar sesión</h2>
+
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit">Login</button>
+</form>
+
+<hr />
+<a href="/register">Registrar usuario</a>
