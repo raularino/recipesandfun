@@ -59,6 +59,9 @@ def login(request):
     # Si llegamos al final renderizamos el formulario
     return render(request, "login.html", {'form': form})
 
+def create_recipe(request):
+    return render(request, "createrecipe.html")
+
 def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
