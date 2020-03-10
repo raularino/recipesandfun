@@ -22,3 +22,4 @@ class receta(models.Model):
 
 class ingrediente(models.Model):
     nombre_ingrediente=models.CharField(max_length=30)
+    tipo=models.CharField(max_length=50)
