@@ -19,3 +19,6 @@ class receta(models.Model):
 
     def create(self):
         self.fecha_publicacion=timezone.now()
+
+class ingrediente(models.Model):
+    nombre_ingrediente=models.CharField(max_length=30)
