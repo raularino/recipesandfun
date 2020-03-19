@@ -3,6 +3,8 @@ from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login
+from .models import ingrediente
+
 # Create your views here.
 def bienvenida(request):
 
@@ -66,3 +68,8 @@ def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
+
+# Mostrar ingredientes por tipo:
+def ingredient_list(request):
+    tipos = ingrediente.objects.all()
+    return render(request, "listaIngredientes.html", {'Tipo de ingrediente': tipos})
