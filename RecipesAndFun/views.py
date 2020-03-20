@@ -71,5 +71,24 @@ def logout(request):
 
 # Mostrar ingredientes por tipo:
 def ingredient_list(request):
-    tipos = ingrediente.objects.filter()
-    return render(request, "listaIngredientes.html", {'Tipo de ingrediente': tipos})
+    data = {}
+    data['carne'] = ingrediente.objects.filter(tipo='carne')
+    data['pescado'] = ingrediente.objects.filter(tipo='pescado')
+    data['vegetal'] = ingrediente.objects.filter(tipo='vegetal')
+    data['pasta'] = ingrediente.objects.filter(tipo='pasta')
+    data['arroz'] = ingrediente.objects.filter(tipo='arroz')
+    data['cereal'] = ingrediente.objects.filter(tipo='cereal')
+    data['lacteo'] = ingrediente.objects.filter(tipo='lacteo')
+    data['fruta'] = ingrediente.objects.filter(tipo='fruta')
+    data['especia'] = ingrediente.objects.filter(tipo='especia')
+    data['otros'] = ingrediente.objects.filter(tipo='otros')
+    data['huevos'] = ingrediente.objects.filter(tipo='huevos')
+    data['legumbres'] = ingrediente.objects.filter(tipo='legumbres')
+    data['frutossecos'] = ingrediente.objects.filter(tipo='frutossecos')
+    data['aceite'] = ingrediente.objects.filter(tipo='aceite')
+    data['harina'] = ingrediente.objects.filter(tipo='harina')
+    data['azucar'] = ingrediente.objects.filter(tipo='azucar')
+    data['vinagre'] = ingrediente.objects.filter(tipo='vinagre')
+
+
+    return render(request, "listaIngredientes.html", {'data': data})
