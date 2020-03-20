@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login
 from .models import ingrediente
+from .forms import RecetaForm
 
 # Create your views here.
 def bienvenida(request):
@@ -62,7 +63,7 @@ def login(request):
     return render(request, "login.html", {'form': form})
 
 def create_recipe(request):
-    return render(request, "createrecipe.html")
+    return render(request, "createrecipe.html",{'form':RecetaForm})
 
 def logout(request):
     do_logout(request)

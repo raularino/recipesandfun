@@ -5,3 +5,9 @@
 
 <br><br>
      You can create here your new recipes
+
+    <br><br>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
