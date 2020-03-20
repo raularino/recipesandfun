@@ -71,5 +71,5 @@ def logout(request):
 
 # Mostrar ingredientes por tipo:
 def ingredient_list(request):
-    tipos = ingrediente.objects.all()
+    tipos = ingrediente.objects.filter()
     return render(request, "listaIngredientes.html", {'Tipo de ingrediente': tipos})
