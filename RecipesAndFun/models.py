@@ -12,7 +12,7 @@ class receta(models.Model):
     comentarios= models.CharField(help_text='Espacio para comentarios', max_length=1000, null=True)
     puntuacion= models.IntegerField
     fecha_publicacion= models.DateTimeField(blank=True, null=True)
-    #usuario= models.ForeignKey(User)
+    #autor= models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return u"%s" % self.nombre_receta

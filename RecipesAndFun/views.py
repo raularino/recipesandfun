@@ -3,8 +3,9 @@ from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login
-from .models import ingrediente
+from .models import ingrediente,receta
 from .forms import RecetaForm
+from django.utils import timezone
 
 # Create your views here.
 def bienvenida(request):
@@ -62,8 +63,18 @@ def login(request):
     # Si llegamos al final renderizamos el formulario
     return render(request, "login.html", {'form': form})
 
-def create_recipe(request):
-    return render(request, "createrecipe.html",{'form':RecetaForm})
+def create_recipe(request,):
+    if request.method == "POST":
+        form = RecetaForm(request.POST)
+        if form.is_valid():
+            receta = form.save(commit=False)
+            #receta.autor = request.user
+            receta.fecha_publicacion = timezone.now()
+            receta.save()
+            return redirect('/createrecipe', pk=receta.pk)
+    else:
+        form = RecetaForm()
+    return render(request, 'createrecipe.html', {'form': form})
 
 def logout(request):
     do_logout(request)
