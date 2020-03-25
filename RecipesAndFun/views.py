@@ -76,6 +76,9 @@ def create_recipe(request,):
         form = RecetaForm()
     return render(request, 'createrecipe.html', {'form': form})
 
+def myrecipes(request):
+    return render(request, 'myrecipes.html')
+
 def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
