@@ -31,5 +31,15 @@ urlpatterns = [
     path('logout', views.logout),
     path('createrecipe',views.create_recipe),
     path('myrecipes',views.myrecipes),
-    path('listaIngredientes', views.ingredient_list)
+    path('listaIngredientes', views.ingredient_list),
+    path('chickenRecipes', views.recipe_list),
+    path('salmonRecipes', views.recipe_list),
+    path('tomatoRecipes', views.recipe_list),
+    path('pastaRecipes', views.recipe_list),
+    path('riceRecipes', views.recipe_list),
+    path('cheeseRecipes', views.recipe_list),
+    path('eggsRecipes', views.recipe_list),
+    path('lentilsRecipes', views.recipe_list),
+    path('strawberryRecipes', views.recipe_list),
+    path('walnutsRecipes', views.recipe_list)
 ]
