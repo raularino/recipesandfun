@@ -76,9 +76,14 @@ def create_recipe(request,):
         form = RecetaForm()
     return render(request, 'createrecipe.html', {'form': form})
 
-def myrecipes(request):
+def myrecipes(request): #id
+    #ownrecipes=receta.objects.filter(autor=id)
     ownrecipes= receta.objects.all()
-    return render(request, 'myrecipes.html', {'ownrecipes':ownrecipes})
+    context={
+        "ownrecipes":ownrecipes,
+        #"id": id
+    }
+    return render(request, 'myrecipes.html', context)
 
 def logout(request):
     do_logout(request)
