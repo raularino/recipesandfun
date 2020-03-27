@@ -33,14 +33,5 @@ urlpatterns = [
     path('myrecipes',views.myrecipes),
     path('listaIngredientes', views.ingredient_list),
     path('listaRecetas', views.recipe_list),
-    path('chickenRecipes', views.recipe_list),
-    path('salmonRecipes', views.recipe_list),
-    path('tomatoRecipes', views.recipe_list),
-    path('pastaRecipes', views.recipe_list),
-    path('riceRecipes', views.recipe_list),
-    path('cheeseRecipes', views.recipe_list),
-    path('eggsRecipes', views.recipe_list),
-    path('lentilsRecipes', views.recipe_list),
-    path('strawberryRecipes', views.recipe_list),
-    path('walnutsRecipes', views.recipe_list)
+    path('chickenRecipes', views.recipe_list)
 ]
