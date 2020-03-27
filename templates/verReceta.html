@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h2>Recetas</h2>
+   {%  for receta in receti %}
+    <div>
+        <h4><a href="">{{ receta.ingredientes }}</a></h4>
+    </div>
 
-</body>
-</html>
+{% endfor %}

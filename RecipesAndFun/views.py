@@ -127,3 +127,8 @@ def recipe_list(request):
     datos['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
 
     return render(request, "listaIngredientes.html", {'datos':datos})
+
+def see_recipe(request):
+    receti={}
+    receti=receta.objects.all()
+    return render(request, "verReceta.html",{'receti':receti})
