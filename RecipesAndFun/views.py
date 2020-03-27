@@ -91,7 +91,7 @@ def logout(request):
     return redirect('/')
 
 # Mostrar ingredientes por tipo:
-def ingredient_list(request):
+"""def ingredient_list(request):
     data = {}
     data['carne'] = ingrediente.objects.filter(tipo='carne')
     data['pescado'] = ingrediente.objects.filter(tipo='pescado')
@@ -111,7 +111,7 @@ def ingredient_list(request):
     #data['azucar'] = ingrediente.objects.filter(tipo='azucar')
     #data['vinagre'] = ingrediente.objects.filter(tipo='vinagre')
 
-    return render(request, "listaIngredientes.html", {'data': data})
+    return render(request, "listaIngredientes.html", {'data': data})"""
 
 def recipe_list(request):
     datos = {}
@@ -126,4 +126,4 @@ def recipe_list(request):
     datos['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
     datos['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
 
-    return render(request, "listaRecetas.html", {'datos':datos})
+    return render(request, "listaIngredientes.html", {'datos':datos})
