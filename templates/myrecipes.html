@@ -5,3 +5,8 @@
 
 <br><br>
      Here you have your recipes
+{%  for receta in ownrecipes %}
+    <div>
+        <h4><a >{{ receta.nombre_receta }}</a></h4>
+    </div>
+{% endfor %}

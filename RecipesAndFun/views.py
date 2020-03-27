@@ -77,7 +77,8 @@ def create_recipe(request,):
     return render(request, 'createrecipe.html', {'form': form})
 
 def myrecipes(request):
-    return render(request, 'myrecipes.html')
+    ownrecipes= receta.objects.all()
+    return render(request, 'myrecipes.html', {'ownrecipes':ownrecipes})
 
 def logout(request):
     do_logout(request)
