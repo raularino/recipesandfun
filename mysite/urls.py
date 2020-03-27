@@ -32,6 +32,7 @@ urlpatterns = [
     path('createrecipe',views.create_recipe),
     path('myrecipes',views.myrecipes),
     path('listaIngredientes', views.ingredient_list),
+    path('listaRecetas', views.recipe_list),
     path('chickenRecipes', views.recipe_list),
     path('salmonRecipes', views.recipe_list),
     path('tomatoRecipes', views.recipe_list),

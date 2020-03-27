@@ -109,15 +109,15 @@ def ingredient_list(request):
 
 def recipe_list(request):
     datos = {}
-    datos['pollo'] = receta.objects.filter(ingredientes='pollo')
-    datos['salmon'] = receta.objects.filter(ingredientes='salmon')
-    datos['tomate'] = receta.objects.filter(ingredientes='tomate')
-    datos['espaguetis'] = receta.objects.filter(ingredientes='espaguetis')
-    datos['arroz'] = receta.objects.filter(ingredientes='arroz')
-    datos['queso'] = receta.objects.filter(ingredientes='queso')
-    datos['huevos'] = receta.objects.filter(ingredientes='huevos')
-    datos['lentejas'] = receta.objects.filter(ingredientes='lentejas')
-    datos['nueces'] = receta.objects.filter(ingredientes='nueces')
-    datos['fresa'] = receta.objects.filter(ingredientes='fresa')
+    datos['pollo'] = receta.objects.filter(ingredientes__contains='pollo')
+    datos['salmon'] = receta.objects.filter(ingredientes__contains='salmon')
+    datos['tomate'] = receta.objects.filter(ingredientes__contains='tomate')
+    datos['espaguetis'] = receta.objects.filter(ingredientes__contains='espaguetis')
+    datos['arroz'] = receta.objects.filter(ingredientes__contains='arroz')
+    datos['queso'] = receta.objects.filter(ingredientes__contains='queso')
+    datos['huevos'] = receta.objects.filter(ingredientes__contains='huevos')
+    datos['lentejas'] = receta.objects.filter(ingredientes__contains='lentejas')
+    datos['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
+    datos['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
 
-    return render(request, "recipes/chickenRecipes.html", {'datos':datos})
+    return render(request, "listaRecetas.html", {'datos':datos})
