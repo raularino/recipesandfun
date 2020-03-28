@@ -6,6 +6,7 @@ from django.contrib.auth import login as do_login
 from .models import ingrediente,receta
 from .forms import RecetaForm
 from django.utils import timezone
+from django.views.generic import DetailView
 
 # Create your views here.
 def bienvenida(request):
@@ -85,7 +86,7 @@ def logout(request):
     # Redireccionamos a la portada
     return redirect('/')
 
-# Mostrar ingredientes por tipo:
+
 def ingredient_list(request):
     context={}
     #TIPOS DE COMIDA EN NUESTRA APLICACION
@@ -127,23 +128,13 @@ def ingredient_list(request):
     }
     return render(request, "listaIngredientes.html", context)
 
-"""def recipe_list(request):
-    #Miramos qué recetas tienen estos ingredientes
-    recetas_de = {}
-    recetas_de['pollo'] = receta.objects.filter(ingredientes__contains='pollo')
-    recetas_de['salmon'] = receta.objects.filter(ingredientes__contains='salmon')
-    recetas_de['tomate'] = receta.objects.filter(ingredientes__contains='tomate')
-    recetas_de['espaguetis'] = receta.objects.filter(ingredientes__contains='espaguetis')
-    recetas_de['arroz'] = receta.objects.filter(ingredientes__contains='arroz')
-    recetas_de['queso'] = receta.objects.filter(ingredientes__contains='queso')
-    recetas_de['huevos'] = receta.objects.filter(ingredientes__contains='huevos')
-    recetas_de['lentejas'] = receta.objects.filter(ingredientes__contains='lentejas')
-    recetas_de['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
-    recetas_de['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
-
-    return render(request, "listaIngredientes.html", {'recetas_de':recetas_de})
-"""
 def see_recipe(request):
-    receti={}
-    receti=receta.objects.all()
-    return render(request, "verReceta.html",{'receti':receti})
+    return render(request, "verReceta.html",)
+
+class RecipeDetail(DetailView):
+    model = receta
+    template_name = 'verReceta.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(RecipeDetail, self).get_context_data(**kwargs)
+        return context

@@ -8,7 +8,8 @@
 
 {%  for instance in ownrecipes %}
     <div>
-        <h4><a href="/verReceta">{{ instance.nombre_receta }}</a></h4>
+        <h4><a href="{% url 'recipe_details' instance.id %}">
+            {{ instance.nombre_receta }}</a></h4>
     </div>
 {% endfor %}
 

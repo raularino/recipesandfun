@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-
+from RecipesAndFun.views import RecipeDetail
 from RecipesAndFun import views
 from RecipesAndFun.views import bienvenida
 
@@ -32,5 +32,8 @@ urlpatterns = [
     path('createrecipe',views.create_recipe),
     path('myrecipes',views.myrecipes),
     path('listaIngredientes', views.ingredient_list),
-    path('verReceta', views.see_recipe),
+    path('verRecetas/<int:pk>',
+       RecipeDetail.as_view(),
+         name='recipe_details'),
+
 ]
