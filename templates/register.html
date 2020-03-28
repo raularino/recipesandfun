@@ -1,5 +1,15 @@
-<h2>User registration</h2>
+{% load static %}
+<head>
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'recipesandfun.css' %}">
+
+    <h2>User registration</h2>
+
+</head>
+
+<body>
 <form method="POST">
     {{ form.as_p }}
     {% csrf_token %}
@@ -9,3 +19,4 @@
 <hr />
 
 <a href="/login">Login</a>
+</body>

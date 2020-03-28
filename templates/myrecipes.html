@@ -1,5 +1,15 @@
-<h2>Your recipes </h2>
+{% load static %}
+<head>
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'recipesandfun.css' %}">
+
+    <h2>Your recipes </h2>
+
+</head>
+
+<body>
 <p>
    Hello <b>{{request.user.username}}</b>.
 
@@ -14,5 +24,6 @@
 {% endfor %}
 
 <br>
-    <h3><a href="/welcome">welcome </a></h3>
+    <h4><a href="/welcome">welcome </a></h4>
 </br>
+</body>
