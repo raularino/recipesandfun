@@ -30,8 +30,13 @@ urlpatterns = [
     path('login', views.login),
     path('logout', views.logout),
     path('createrecipe',views.create_recipe),
+    #Apartado Mis Recetas
     path('myrecipes',views.myrecipes),
+
+    #Apartado lista de recetas
     path('listaIngredientes', views.ingredient_list),
+
+    #Detalles de recetas
     path('verRecetas/<int:pk>',
        RecipeDetail.as_view(),
          name='recipe_details'),

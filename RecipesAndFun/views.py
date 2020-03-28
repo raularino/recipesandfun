@@ -77,15 +77,10 @@ def create_recipe(request,):
         form = RecetaForm()
     return render(request, 'createrecipe.html', {'form': form})
 
-def myrecipes(request):
-    ownrecipes=receta.objects.filter(autor=request.user.id)
-    return render(request, 'myrecipes.html', {"ownrecipes":ownrecipes})
-
 def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
-
 
 def ingredient_list(request):
     context={}
@@ -128,8 +123,9 @@ def ingredient_list(request):
     }
     return render(request, "listaIngredientes.html", context)
 
-def see_recipe(request):
-    return render(request, "verReceta.html",)
+def myrecipes(request):
+    ownrecipes=receta.objects.filter(autor=request.user.id)
+    return render(request, 'myrecipes.html', {"ownrecipes":ownrecipes})
 
 class RecipeDetail(DetailView):
     model = receta
