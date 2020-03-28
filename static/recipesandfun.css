@@ -2,6 +2,10 @@ h1, h2{
     color: #000000;
     font-family: 'Lobster';
 }
+
+h3, h4, h5{
+    font-family: 'Abel', sans-serif;
+}
 body {
     padding-left: 15px;
 }
