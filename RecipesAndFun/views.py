@@ -68,7 +68,7 @@ def create_recipe(request,):
         form = RecetaForm(request.POST)
         if form.is_valid():
             receta = form.save(commit=False)
-            #receta.autor = request.user
+            receta.autor = request.user
             receta.fecha_publicacion = timezone.now()
             receta.save()
             return redirect('/createrecipe', pk=receta.pk)
@@ -76,14 +76,9 @@ def create_recipe(request,):
         form = RecetaForm()
     return render(request, 'createrecipe.html', {'form': form})
 
-def myrecipes(request): #id
-    #ownrecipes=receta.objects.filter(autor=id)
-    ownrecipes= receta.objects.all()
-    context={
-        "ownrecipes":ownrecipes,
-        #"id": id
-    }
-    return render(request, 'myrecipes.html', context)
+def myrecipes(request):
+    ownrecipes=receta.objects.filter(autor=request.user.id)
+    return render(request, 'myrecipes.html', {"ownrecipes":ownrecipes})
 
 def logout(request):
     do_logout(request)
