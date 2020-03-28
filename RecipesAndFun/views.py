@@ -115,7 +115,7 @@ def ingredient_list(request):
     recetas_de['huevos'] = receta.objects.filter(ingredientes__contains='huevos')
     recetas_de['lentejas'] = receta.objects.filter(ingredientes__contains='lentejas')
     recetas_de['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
-    recetas_de['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
+    recetas_de['fresas'] = receta.objects.filter(ingredientes__contains='fresas')
 
     context={
         'recetas_de':recetas_de,
