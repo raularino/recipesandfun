@@ -1,7 +1,13 @@
-<h2>Recetas</h2>
+<h1>Recetas</h1>
    {%  for receta in receti %}
     <div>
-        <h4><a href="">{{ receta.ingredientes }}</a></h4>
+        <h2><a >{{ receta.nombre_receta }}</a></h2>
+        <h3><a >{{ receta.ingredientes }}</a></h3>
+        <h3><a >{{ receta.preparacion }}</a></h3>
     </div>
 
 {% endfor %}
+
+<br>
+    <h3><a href="/welcome">welcome </a></h3>
+</br>

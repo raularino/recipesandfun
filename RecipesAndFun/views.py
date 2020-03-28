@@ -86,43 +86,63 @@ def logout(request):
     return redirect('/')
 
 # Mostrar ingredientes por tipo:
-"""def ingredient_list(request):
-    data = {}
-    data['carne'] = ingrediente.objects.filter(tipo='carne')
-    data['pescado'] = ingrediente.objects.filter(tipo='pescado')
-    data['vegetal'] = ingrediente.objects.filter(tipo='vegetal')
-    data['pasta'] = ingrediente.objects.filter(tipo='pasta')
-    data['arroz'] = ingrediente.objects.filter(tipo='arroz')
-    #data['cereal'] = ingrediente.objects.filter(tipo='cereal')
-    data['lacteo'] = ingrediente.objects.filter(tipo='lacteo')
-    data['fruta'] = ingrediente.objects.filter(tipo='fruta')
-    #data['especia'] = ingrediente.objects.filter(tipo='especia')
-    #data['otros'] = ingrediente.objects.filter(tipo='otros')
-    data['huevos'] = ingrediente.objects.filter(tipo='huevos')
-    data['legumbres'] = ingrediente.objects.filter(tipo='legumbres')
-    data['frutossecos'] = ingrediente.objects.filter(tipo='frutossecos')
-    #data['aceite'] = ingrediente.objects.filter(tipo='aceite')
-    #data['harina'] = ingrediente.objects.filter(tipo='harina')
-    #data['azucar'] = ingrediente.objects.filter(tipo='azucar')
-    #data['vinagre'] = ingrediente.objects.filter(tipo='vinagre')
+def ingredient_list(request):
+    context={}
+    #TIPOS DE COMIDA EN NUESTRA APLICACION
+    tipo_comida ={}
+    tipo_comida['carne'] = ingrediente.objects.filter(tipo='carne')
+    tipo_comida['pescado'] = ingrediente.objects.filter(tipo='pescado')
+    tipo_comida['vegetal'] = ingrediente.objects.filter(tipo='vegetal')
+    tipo_comida['pasta'] = ingrediente.objects.filter(tipo='pasta')
+    tipo_comida['arroz'] = ingrediente.objects.filter(tipo='arroz')
+    #tipo_comida['cereal'] = ingrediente.objects.filter(tipo='cereal')
+    tipo_comida['lacteo'] = ingrediente.objects.filter(tipo='lacteo')
+    tipo_comida['fruta'] = ingrediente.objects.filter(tipo='fruta')
+    #tipo_comida['especia'] = ingrediente.objects.filter(tipo='especia')
+    #tipo_comida['otros'] = ingrediente.objects.filter(tipo='otros')
+    tipo_comida['huevos'] = ingrediente.objects.filter(tipo='huevos')
+    tipo_comida['legumbres'] = ingrediente.objects.filter(tipo='legumbres')
+    tipo_comida['frutossecos'] = ingrediente.objects.filter(tipo='frutossecos')
+    #tipo_comida['aceite'] = ingrediente.objects.filter(tipo='aceite')
+    #tipo_comida['harina'] = ingrediente.objects.filter(tipo='harina')
+    #tipo_comida['azucar'] = ingrediente.objects.filter(tipo='azucar')
+    #tipo_comida['vinagre'] = ingrediente.objects.filter(tipo='vinagre')
 
-    return render(request, "listaIngredientes.html", {'data': data})"""
+    #INGREDIENTES DE NUESTRAS RECETAS
+    recetas_de = {}
+    recetas_de['pollo'] = receta.objects.filter(ingredientes__contains='pollo')
+    recetas_de['salmon'] = receta.objects.filter(ingredientes__contains='salmon')
+    recetas_de['tomate'] = receta.objects.filter(ingredientes__contains='tomate')
+    recetas_de['espaguetis'] = receta.objects.filter(ingredientes__contains='espaguetis')
+    recetas_de['arroz'] = receta.objects.filter(ingredientes__contains='arroz')
+    recetas_de['queso'] = receta.objects.filter(ingredientes__contains='queso')
+    recetas_de['huevos'] = receta.objects.filter(ingredientes__contains='huevos')
+    recetas_de['lentejas'] = receta.objects.filter(ingredientes__contains='lentejas')
+    recetas_de['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
+    recetas_de['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
 
-def recipe_list(request):
-    datos = {}
-    datos['pollo'] = receta.objects.filter(ingredientes__contains='pollo')
-    datos['salmon'] = receta.objects.filter(ingredientes__contains='salmon')
-    datos['tomate'] = receta.objects.filter(ingredientes__contains='tomate')
-    datos['espaguetis'] = receta.objects.filter(ingredientes__contains='espaguetis')
-    datos['arroz'] = receta.objects.filter(ingredientes__contains='arroz')
-    datos['queso'] = receta.objects.filter(ingredientes__contains='queso')
-    datos['huevos'] = receta.objects.filter(ingredientes__contains='huevos')
-    datos['lentejas'] = receta.objects.filter(ingredientes__contains='lentejas')
-    datos['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
-    datos['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
+    context={
+        'recetas_de':recetas_de,
+        'tipo_comida':tipo_comida
+    }
+    return render(request, "listaIngredientes.html", context)
 
-    return render(request, "listaIngredientes.html", {'datos':datos})
+"""def recipe_list(request):
+    #Miramos qué recetas tienen estos ingredientes
+    recetas_de = {}
+    recetas_de['pollo'] = receta.objects.filter(ingredientes__contains='pollo')
+    recetas_de['salmon'] = receta.objects.filter(ingredientes__contains='salmon')
+    recetas_de['tomate'] = receta.objects.filter(ingredientes__contains='tomate')
+    recetas_de['espaguetis'] = receta.objects.filter(ingredientes__contains='espaguetis')
+    recetas_de['arroz'] = receta.objects.filter(ingredientes__contains='arroz')
+    recetas_de['queso'] = receta.objects.filter(ingredientes__contains='queso')
+    recetas_de['huevos'] = receta.objects.filter(ingredientes__contains='huevos')
+    recetas_de['lentejas'] = receta.objects.filter(ingredientes__contains='lentejas')
+    recetas_de['nueces'] = receta.objects.filter(ingredientes__contains='nueces')
+    recetas_de['fresa'] = receta.objects.filter(ingredientes__contains='fresa')
 
+    return render(request, "listaIngredientes.html", {'recetas_de':recetas_de})
+"""
 def see_recipe(request):
     receti={}
     receti=receta.objects.all()

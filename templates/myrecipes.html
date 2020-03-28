@@ -4,10 +4,11 @@
    Hello <b>{{request.user.username}}</b>.
 
 <br><br>
-     Here you have your recipes
+     Here you have your recipes:
+
 {%  for instance in ownrecipes %}
     <div>
-        <h4><a >{{ instance.nombre_receta }}</a></h4>
+        <h4><a href="/verReceta">{{ instance.nombre_receta }}</a></h4>
     </div>
 {% endfor %}
 

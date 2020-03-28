@@ -1,17 +1,16 @@
-<h2>
+<h1>
     Tipos de Ingredientes:
-</h2>
+</h1>
 
 <h3>Carne</h3>
-{%  for receta in datos.pollo %}
+{%  for receta in recetas_de.pollo %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
-
 {% endfor %}
 
 <h3>Pescado</h3>
-{%  for receta in datos.salmon %}
+{%  for receta in recetas_de.salmon %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -19,7 +18,7 @@
 {% endfor %}
 
 <h3>Vegetal</h3>
-{%  for receta in datos.tomate %}
+{%  for receta in recetas_de.tomate %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -27,7 +26,7 @@
 {% endfor %}
 
 <h3>Pasta</h3>
-{%  for receta in datos.espaguetis %}
+{%  for receta in recetas_de.espaguetis %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -35,7 +34,7 @@
 {% endfor %}
 
 <h3>Arroz</h3>
-{%  for receta in datos.arroz %}
+{%  for receta in recetas_de.arroz %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -43,7 +42,7 @@
 {% endfor %}
 
 <h3>Lácteos</h3>
-{%  for receta in datos.queso %}
+{%  for receta in recetas_de.queso %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -51,7 +50,7 @@
 {% endfor %}
 
 <h3>Huevos</h3>
-{%  for receta in datos.huevos %}
+{%  for receta in recetas_de.huevos %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -59,7 +58,7 @@
 {% endfor %}
 
 <h3>Legumbres</h3>
-{%  for receta in datos.lentejas %}
+{%  for receta in recetas_de.lentejas %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -67,7 +66,7 @@
 {% endfor %}
 
 <h3>Fruta</h3>
-{%  for receta in datos.fresa %}
+{%  for receta in recetas_de.fresa %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
@@ -75,7 +74,7 @@
 {% endfor %}
 
 <h3>Frutos secos</h3>
-{%  for receta in datos.nueces %}
+{%  for receta in recetas_de.nueces %}
     <div>
         <h4><a href="/verReceta">{{ receta.nombre_receta }}</a></h4>
     </div>
