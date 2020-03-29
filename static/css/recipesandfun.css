@@ -17,6 +17,19 @@ p{
 a{
      color: #3d4f80;
 }
+.button{
+    background: #3d4f80;
+    display: inline-block;
+    font-family: 'Abel', sans-serif;
+    width: 70px;
+    margin:0px;
+    padding:5px 0px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0px 3px 3px #000000;
+    border-radius: 50px;
+}
+
 body {
     padding-left: 15px;
     background: url("https://venngage-wordpress.s3.amazonaws.com/uploads/2018/11/15-Presentation-Background-Examples16.jpeg");
