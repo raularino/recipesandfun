@@ -9,6 +9,7 @@ class receta(models.Model):
     ingredientes= models.TextField(help_text='Escribe los ingredientes')
     preparacion= models.TextField(help_text='Preparación y pasos a seguir')
     tiempo_preparacion= models.IntegerField(help_text='Minutos para realizar la receta',default=60)
+    receta_privada = models.BooleanField(default=False)
     review= models.CharField(help_text='Espacio para comentarios', max_length=1000, null=True,blank=True)
     rating= models.IntegerField
     fecha_publicacion= models.DateTimeField(blank=True, null=True)

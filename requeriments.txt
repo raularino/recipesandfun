@@ -1,3 +1,0 @@
-El proyecto Recipes and Fun es una plataforma para compartir recetas con otros usuarios.
-Permite el registro a la aplicación. Dónde el usuario puede crear sus recetas y publicarlas.
-El usuario además puede ver las recetas creadas por otros usuarios.
