@@ -3,13 +3,19 @@ h1, h2{
     font-family: 'Lobster';
 }
 
-h3, h4, h5{
+h3{
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+}
+h4,h5{
     font-family: 'Abel', sans-serif;
 }
 p{
     font-family: 'Abel', sans-serif;
     font-size: 16px;
-
+}
+a{
+     color: #3d4f80;
 }
 body {
     padding-left: 15px;
