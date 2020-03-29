@@ -7,10 +7,10 @@ from django.utils import timezone
 class receta(models.Model):
     nombre_receta= models.CharField(max_length=100)
     ingredientes= models.TextField(help_text='Escribe los ingredientes')
-    preparacion= models.TextField(verbose_name='Preparacion')
-    tiempo_preparacion= models.IntegerField
-    comentarios= models.CharField(help_text='Espacio para comentarios', max_length=1000, null=True)
-    puntuacion= models.IntegerField
+    preparacion= models.TextField(help_text='Preparación y pasos a seguir')
+    tiempo_preparacion= models.IntegerField(help_text='Minutos para realizar la receta',default=60)
+    review= models.CharField(help_text='Espacio para comentarios', max_length=1000, null=True,blank=True)
+    rating= models.IntegerField
     fecha_publicacion= models.DateTimeField(blank=True, null=True)
     autor= models.ForeignKey(User, on_delete=models.CASCADE)
 
