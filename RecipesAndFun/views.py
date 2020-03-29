@@ -8,7 +8,7 @@ from .forms import RecetaForm
 from django.utils import timezone
 from django.views.generic import DetailView
 
-# Create your views here.
+# Página de bienvenida.
 def bienvenida(request):
 
     # Si estamos identificados devolvemos la portada
@@ -17,6 +17,7 @@ def bienvenida(request):
     # En otro caso redireccionamos al login
     return redirect('/login')
 
+#Registro a recipes and fun
 def register(request):
     # Creamos el formulario de autenticación vacío
     form = UserCreationForm()
@@ -39,6 +40,7 @@ def register(request):
     # Si llegamos al final renderizamos el formulario
     return render(request, "register.html", {'form': form})
 
+#Iniciar sesion
 def login(request):
     # Creamos el formulario de autenticación vacío
     form = AuthenticationForm()
@@ -64,6 +66,7 @@ def login(request):
     # Si llegamos al final renderizamos el formulario
     return render(request, "login.html", {'form': form})
 
+#Crear una receta con el formulario
 def create_recipe(request,):
     if request.method == "POST":
         form = RecetaForm(request.POST)
@@ -77,11 +80,13 @@ def create_recipe(request,):
         form = RecetaForm()
     return render(request, 'createrecipe.html', {'form': form})
 
+#Desconnectarse
 def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
 
+#Funcion para organizar los ingredientes que nos entran a la base de datos para despues poder buscarlos
 def ingredient_list(request):
     context={}
     #TIPOS DE COMIDA EN NUESTRA APLICACION
@@ -123,10 +128,12 @@ def ingredient_list(request):
     }
     return render(request, "listaIngredientes.html", context)
 
+#Funcion para el apartado "My recipes" donde el usuario visualizará las recetas que haya creado
 def myrecipes(request):
     ownrecipes=receta.objects.filter(autor=request.user.id)
     return render(request, 'myrecipes.html', {"ownrecipes":ownrecipes})
 
+#Clase para ver los detalles de una receta
 class RecipeDetail(DetailView):
     model = receta
     template_name = 'verReceta.html'
